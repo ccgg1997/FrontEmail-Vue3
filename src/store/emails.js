@@ -26,9 +26,6 @@ export default {
             .catch((error) => {
                 console.log(error);
             })
-        },
-        iniciarEmails({commit}) {
-            commit('LlenarEmails', []);
         }
     }
 };

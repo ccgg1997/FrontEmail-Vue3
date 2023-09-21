@@ -2,6 +2,7 @@
 import Navbar from "./components/Navbar.vue";
 import Content from "./components/Content.vue";
 import Search from "./components/Search.vue";
+import Footer from "./components/Footer.vue";
 
 </script>
 
@@ -10,6 +11,8 @@ import Search from "./components/Search.vue";
     <Navbar />
     <Search />
     <Content />
+    <Footer />
+
     
   </div>
 </template>

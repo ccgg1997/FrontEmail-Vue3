@@ -1,5 +1,5 @@
 <template>
-    <form class="flex items-center p-3"  @submit.prevent="submitForm" >
+    <form class="flex items-center pt-3 pb-3 pl-6 pr-24"  @submit.prevent="submitForm" >
           <label for="simple-search" class="sr-only">Search</label>
           <div class="relative w-full">
             
@@ -54,12 +54,9 @@
             // Una vez que se carguen los emails, los convertimos a un string JSON
             const emailsArray = store.getters['emails/Emails'];
             emailsJson.value = JSON.stringify(emailsArray, null, 2); // Formatea con 2 espacios
-            console.log("datos input: " + inputText.value);
-            console.log("datos api: " + emailsJson.value+" "+emailsArray.length);
             emailsJson.value = "";
 
             return;
         }
-        console.log("data inputOld: " + inputOld.value);
     }
 </script>
