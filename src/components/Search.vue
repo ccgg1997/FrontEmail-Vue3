@@ -49,7 +49,7 @@
             inputOld.value = inputText.value;
             
             // Llama a la función 'cargarEmails' del módulo 'emails' de forma asíncrona
-            await store.dispatch('emails/cargarEmails');
+            await store.dispatch('emails/cargarEmails',inputText.value);
             
             // Una vez que se carguen los emails, los convertimos a un string JSON
             const emailsArray = store.getters['emails/Emails'];

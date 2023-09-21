@@ -16,10 +16,12 @@ export default {
         }
     },
     actions: {
-        cargarEmails({commit}) {
-            axios.get('https://jsonplaceholder.typicode.com/users')
+        cargarEmails({commit},texto) {
+            axios.post('http://localhost:8080/query', {
+                query: texto
+            })
             .then((response) => {
-                commit('LlenarEmails', response.data);
+                commit('LlenarEmails', response.data.EmailsEncontrados);
             })
             .catch((error) => {
                 console.log(error);

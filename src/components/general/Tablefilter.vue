@@ -1,15 +1,15 @@
 <template>
-  <div class="relative overflow-x-auto">
-    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+  <div class="relative overflow-auto">
+    <table v-if="!showModal" class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
       <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
           <th
             v-for="column in columns"
             :key="column"
             scope="col"
-            class="px-6 py-3"
+            class="px-6 py-3 w-10 h-2"
           >
-            {{ column }}
+            <div class="truncate">{{ column }}</div>
           </th>
         </tr>
       </thead>
@@ -23,25 +23,29 @@
           <td
             v-for="key in Object.keys(row)"
             :key="key"
-            class="px-6 py-4"
+            class="w-3 h-20 px-6 py-4"
           >
-            {{ row[key] }}
+            <div class="truncate">{{ row[key] }}</div>
           </td>
         </tr>
       </tbody>
     </table>
-
-    <div v-if="showModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
+    <div v-if="showModal" class="flex">
+      
       <div class="bg-white p-5 rounded shadow-lg">
+        <button @click="showModal = false" class="mb-4 px-4 py-2 bg-blue-500 text-white rounded">Return</button>
         <h2 class="text-xl mb-4">Row Details:</h2>
+        
         <div v-for="(value, key) in selectedRow" :key="key">
           <strong>{{ key }}:</strong> {{ value }}
         </div>
-        <button @click="showModal = false" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Close</button>
+
       </div>
     </div>
+  
   </div>
 </template>
+
 
 <script>
 export default {
