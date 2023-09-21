@@ -36,15 +36,28 @@
         </form>
 </template>
 <script setup>
-    import { ref } from 'vue';
+    import { ref} from 'vue';
+    import { useStore } from 'vuex';
 
+    const store = useStore();
     const inputText = ref("");
     const inputOld = ref("");
+    const emailsJson = ref("");
 
-    function submitForm() {
-        if(inputOld.value!==inputText.value){
+    async function submitForm() {
+        if(inputOld.value !== inputText.value){
             inputOld.value = inputText.value;
+            
+            // Llama a la función 'cargarEmails' del módulo 'emails' de forma asíncrona
+            await store.dispatch('emails/cargarEmails');
+            
+            // Una vez que se carguen los emails, los convertimos a un string JSON
+            const emailsArray = store.getters['emails/Emails'];
+            emailsJson.value = JSON.stringify(emailsArray, null, 2); // Formatea con 2 espacios
             console.log("datos input: " + inputText.value);
+            console.log("datos api: " + emailsJson.value+" "+emailsArray.length);
+            emailsJson.value = "";
+
             return;
         }
         console.log("data inputOld: " + inputOld.value);

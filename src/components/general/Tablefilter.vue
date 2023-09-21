@@ -1,215 +1,72 @@
 <template>
-  <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <div class="relative overflow-x-auto">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-      <thead
-        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
-      >
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
-          <th scope="col" class="p-4">
-            <div class="flex items-center">
-              <input
-                id="checkbox-all-search"
-                type="checkbox"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label for="checkbox-all-search" class="sr-only">checkbox</label>
-            </div>
+          <th
+            v-for="column in columns"
+            :key="column"
+            scope="col"
+            class="px-6 py-3"
+          >
+            {{ column }}
           </th>
-          <th scope="col" class="px-6 py-3">Product name</th>
-          <th scope="col" class="px-6 py-3">Color</th>
-          <th scope="col" class="px-6 py-3">Category</th>
-          <th scope="col" class="px-6 py-3">Price</th>
-          <th scope="col" class="px-6 py-3">Action</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+          v-for="row in rows"
+          :key="row.id"
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 cursor-pointer"
+          @click="openModal(row)"
         >
-          <td class="w-4 p-4">
-            <div class="flex items-center">
-              <input
-                id="checkbox-table-search-1"
-                type="checkbox"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label for="checkbox-table-search-1" class="sr-only"
-                >checkbox</label
-              >
-            </div>
-          </td>
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+          <td
+            v-for="key in Object.keys(row)"
+            :key="key"
+            class="px-6 py-4"
           >
-            Apple MacBook Pro 17"
-          </th>
-          <td class="px-6 py-4">Silver</td>
-          <td class="px-6 py-4">Laptop</td>
-          <td class="px-6 py-4">$2999</td>
-          <td class="px-6 py-4">
-            <a
-              href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >Edit</a
-            >
-          </td>
-        </tr>
-        <tr
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-        >
-          <td class="w-4 p-4">
-            <div class="flex items-center">
-              <input
-                id="checkbox-table-search-2"
-                type="checkbox"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label for="checkbox-table-search-2" class="sr-only"
-                >checkbox</label
-              >
-            </div>
-          </td>
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-          >
-            Microsoft Surface Pro
-          </th>
-          <td class="px-6 py-4">White</td>
-          <td class="px-6 py-4">Laptop PC</td>
-          <td class="px-6 py-4">$1999</td>
-          <td class="px-6 py-4">
-            <a
-              href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >Edit</a
-            >
-          </td>
-        </tr>
-        <tr
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-        >
-          <td class="w-4 p-4">
-            <div class="flex items-center">
-              <input
-                id="checkbox-table-search-3"
-                type="checkbox"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label for="checkbox-table-search-3" class="sr-only"
-                >checkbox</label
-              >
-            </div>
-          </td>
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-          >
-            Magic Mouse 2
-          </th>
-          <td class="px-6 py-4">Black</td>
-          <td class="px-6 py-4">Accessories</td>
-          <td class="px-6 py-4">$99</td>
-          <td class="px-6 py-4">
-            <a
-              href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >Edit</a
-            >
-          </td>
-        </tr>
-        <tr
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-        >
-          <td class="w-4 p-4">
-            <div class="flex items-center">
-              <input
-                id="checkbox-table-3"
-                type="checkbox"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label for="checkbox-table-3" class="sr-only">checkbox</label>
-            </div>
-          </td>
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-          >
-            Apple Watch
-          </th>
-          <td class="px-6 py-4">Silver</td>
-          <td class="px-6 py-4">Accessories</td>
-          <td class="px-6 py-4">$179</td>
-          <td class="px-6 py-4">
-            <a
-              href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >Edit</a
-            >
-          </td>
-        </tr>
-        <tr
-          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
-        >
-          <td class="w-4 p-4">
-            <div class="flex items-center">
-              <input
-                id="checkbox-table-3"
-                type="checkbox"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label for="checkbox-table-3" class="sr-only">checkbox</label>
-            </div>
-          </td>
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-          >
-            iPad
-          </th>
-          <td class="px-6 py-4">Gold</td>
-          <td class="px-6 py-4">Tablet</td>
-          <td class="px-6 py-4">$699</td>
-          <td class="px-6 py-4">
-            <a
-              href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >Edit</a
-            >
-          </td>
-        </tr>
-        <tr
-          class="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600"
-        >
-          <td class="w-4 p-4">
-            <div class="flex items-center">
-              <input
-                id="checkbox-table-3"
-                type="checkbox"
-                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label for="checkbox-table-3" class="sr-only">checkbox</label>
-            </div>
-          </td>
-          <th
-            scope="row"
-            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-          >
-            Apple iMac 27"
-          </th>
-          <td class="px-6 py-4">Silver</td>
-          <td class="px-6 py-4">PC Desktop</td>
-          <td class="px-6 py-4">$3999</td>
-          <td class="px-6 py-4">
-            <a
-              href="#"
-              class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
-              >Edit</a
-            >
+            {{ row[key] }}
           </td>
         </tr>
       </tbody>
     </table>
+
+    <div v-if="showModal" class="fixed top-0 left-0 w-full h-full flex items-center justify-center z-50">
+      <div class="bg-white p-5 rounded shadow-lg">
+        <h2 class="text-xl mb-4">Row Details:</h2>
+        <div v-for="(value, key) in selectedRow" :key="key">
+          <strong>{{ key }}:</strong> {{ value }}
+        </div>
+        <button @click="showModal = false" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded">Close</button>
+      </div>
+    </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    columns: {
+      type: Array,
+      required: true,
+    },
+    rows: {
+      type: Array,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      showModal: false,
+      selectedRow: {},
+    };
+  },
+  methods: {
+    openModal(row) {
+      this.selectedRow = row;
+      this.showModal = true;
+    },
+  },
+};
+</script>
+
