@@ -1,5 +1,6 @@
 import axios from 'axios';
-
+const HOST_API = import.meta.env.VITE_HOST_API;
+console.log("API URL: ", typeof(HOST_API)+"--"+HOST_API);
 export default {
     namespaced: true,
     state: {
@@ -17,7 +18,7 @@ export default {
     },
     actions: {
         cargarEmails({commit},texto) {
-            axios.post('http://localhost:8080/query', {
+            axios.post(HOST_API, {
                 query: texto
             })
             .then((response) => {
