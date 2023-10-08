@@ -18,7 +18,6 @@ export default {
   setup() {
     const store = useStore();
 
-    
     const emailsArray = computed(() => store.getters['emails/Emails']?? []) ;
 
     const headers = computed(() => {

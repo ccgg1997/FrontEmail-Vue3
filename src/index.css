@@ -1,3 +1,78 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+#more-arrows:hover .arrow-top {
+    transform: translateY(18px);
+}
+
+#more-arrows:hover .arrow-bottom {
+    transform: translateY(-18px);
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.arrow-middle {
+    animation: fadeInOut 1.5s infinite;
+}
+
+.arrow-top {
+    animation: fadeInOut 1.5s 0.5s infinite;
+}
+
+.arrow-bottom {
+    animation: fadeInOut 1.5s 1s infinite;
+}
+
+#more-arrows:hover .arrow-top {
+    transform: translateY(18px);
+    animation: none;
+}
+
+#more-arrows:hover .arrow-bottom {
+    transform: translateY(-18px);
+    animation: none;
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+
+.arrow-middle {
+    animation: fadeInOut 1.5s infinite;
+}
+
+.arrow-top {
+    animation: fadeInOut 1.5s 0.5s infinite;
+}
+
+.arrow-bottom {
+    animation: fadeInOut 1.5s 1s infinite;
+}
+
+#more-arrows:hover .arrow-top {
+    transform: translateY(18px);
+    animation: none;
+}
+
+#more-arrows:hover .arrow-bottom {
+    transform: translateY(-18px);
+    animation: none;
+}

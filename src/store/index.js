@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import emails from './emails';
+import auth from './auth';
 
 export default createStore({
     state: {
@@ -15,6 +16,7 @@ export default createStore({
         
     },
     modules: {
-        emails
+        emails,
+        auth
     }
 });

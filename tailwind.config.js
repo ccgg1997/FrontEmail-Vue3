@@ -6,7 +6,12 @@ export default {
     "./node_modules/flowbite/**/*.js"
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'heroback': "url('/src/images/Landingimage.webp')",
+      }
+      
+    }
   },
   plugins: [require('flowbite/plugin')],
 }

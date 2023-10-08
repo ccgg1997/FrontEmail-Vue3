@@ -18,9 +18,9 @@ export default {
     },
     actions: {
         cargarEmails({commit},texto) {
-            axios.post(HOST_API, {
+            axios.post(HOST_API,  JSON.stringify({
                 query: texto
-            })
+            }))
             .then((response) => {
                 commit('LlenarEmails', response.data.EmailsEncontrados);
             })

@@ -5,14 +5,10 @@
     >
       <div class="flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="#/" class="flex items-center">
-          <img src="../images/logo.jpg" class="h-8 mr-3" alt="Logo" />
+          <img src="../images/logo.webp" class="h-8 mr-3" alt="Logo" />
           <span
             class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
-            >Search
-            <span
-              class="self-center text-2xl font-semibold whitespace-nowrap dark:text-red-500"
-              >Email</span
-            ></span
+            >EmailSearch</span
           >
         </a>
 
@@ -24,6 +20,7 @@
           modalContent2="La aplicación funciona comparando el texto ingresado con el contenido de los correos electrónicos almacenados en el sistema. Si el texto ingresado coincide con el contenido de un correo electrónico, el correo electrónico se mostrará en la lista de resultados."
         />
       </div>
+      
     </nav>
   </div>
 </template>
@@ -31,7 +28,7 @@
 import Modal from "./general/Modal.vue";
 export default {
   components: {
-    Modal,
+    Modal
   },
 };
 </script>
