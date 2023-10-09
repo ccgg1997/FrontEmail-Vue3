@@ -9,7 +9,6 @@ import { computed } from 'vue';
 
 const store = useStore();
 const auth = computed(() => store.getters['auth/isAuthenticated']) ;
-console.log(auth.value);
 </script>
 
 <template>

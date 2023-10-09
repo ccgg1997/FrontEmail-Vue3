@@ -13,37 +13,24 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import Tablefilter from "./general/Tablefilter.vue";
 import { computed } from 'vue';
 import { useStore } from 'vuex';
 
-export default {
-  components: {
-    Tablefilter,
-  },
-  setup() {
-    const store = useStore();
+const store = useStore();
 
-    const emailsArray = computed(() => store.getters['emails/Emails'] ?? []);
+const emailsArray = computed(() => store.getters['emails/Emails'] ?? []);
 
-
-    const headers = computed(() => {
-      if (emailsArray.value !== null && emailsArray.value.length > 0) {
-        return Object.keys(emailsArray.value[0]);
-      }
-      return [];
-    });
-
-    const emailsArrayEmpty = computed(() => emailsArray.value === null || emailsArray.value.length === 0)
-
-    console.log(emailsArrayEmpty.value, "jola");
-
-    return {
-      columns: headers,
-      products: emailsArray,
-      emailsArrayEmpty: emailsArrayEmpty
-    };
+const headers = computed(() => {
+  if (emailsArray.value !== null && emailsArray.value.length > 0) {
+    return Object.keys(emailsArray.value[0]);
   }
-};
+  return [];
+});
+
+const emailsArrayEmpty = computed(() => emailsArray.value === null || emailsArray.value.length === 0);
+const columns = headers;
+const products = emailsArray;
 </script>
+

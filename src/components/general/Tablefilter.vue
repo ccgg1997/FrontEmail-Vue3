@@ -34,34 +34,33 @@
   </div>
 </template>
 
-<script>
-export default {
-  props: {
-    columns: {
-      type: Array,
-      default: () => [],
-      required: true,
-    },
-    rows: {
-      type: Array,
-      default: () => [],
-      required: true,
-    },
+<script setup>
+import { defineProps, ref } from 'vue';
+
+const props = defineProps({
+  columns: {
+    type: Array,
+    default: () => [],
+    required: true,
   },
-  data() {
-    return {
-      showModal: false,
-      selectedRow: {},
-    };
-  },
-  methods: {
-    openModal(row) {
-      this.selectedRow = row;
-      this.showModal = true;
-    },
-    headersEmpty() {
-      return this.columns === null || this.rows === null || this.columns.length === 0 || this.rows.length === 0;
-    },
-  },
+  rows: {
+    type: Array,
+    default: () => [],
+    required: true,
+  }
+});
+
+const showModal = ref(false);
+const selectedRow = ref({});
+
+const openModal = (row) => {
+  selectedRow.value = row;
+  showModal.value = true;
 };
+
+const headersEmpty = () => {
+  return props.columns === null || props.rows === null || props.columns.length === 0 || props.rows.length === 0;
+};
+
 </script>
+

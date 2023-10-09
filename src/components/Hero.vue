@@ -41,12 +41,6 @@
     </div>
 </template>
 
-<script>
-import LoginButton from './LoginButton.vue';
-export default {
-    components: {
-        LoginButton
-    }
-}
-
+<script setup>
+    import LoginButton from "./LoginButton.vue";
 </script>

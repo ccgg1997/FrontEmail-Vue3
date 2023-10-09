@@ -1,6 +1,6 @@
 import axios from 'axios';
 const HOST_API = import.meta.env.VITE_HOST_API;
-console.log("API URL: ", typeof(HOST_API)+"--"+HOST_API);
+//console.log("API URL: ", typeof(HOST_API)+"--"+HOST_API);
 export default {
     namespaced: true,
     state: {
@@ -17,16 +17,15 @@ export default {
         }
     },
     actions: {
-        cargarEmails({commit},texto) {
-            axios.post(HOST_API,  JSON.stringify({
-                query: texto
-            }))
-            .then((response) => {
+        async cargarEmails({commit}, texto) {
+            try {
+                const response = await axios.post(HOST_API, JSON.stringify({ query: texto }));
                 commit('LlenarEmails', response.data.EmailsEncontrados);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
+                return response.data.EmailsEncontrados;
+            } catch (error) {
+                console.error("Hubo un error al cargar los emails:", error);
+                throw error; 
+            }
         }
     }
 };
