@@ -14,11 +14,7 @@
                     </svg>
                 </div>
             </div>
-
-
         </div>
-
-
     </div>
     <div class="flex p-10 ">
         <div class=" pr-10">
