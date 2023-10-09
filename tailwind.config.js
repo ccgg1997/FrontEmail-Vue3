@@ -8,8 +8,14 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        'heroback': "url('/src/images/Landingimage.webp')",
-      }
+        'heroback': "url('/src/images/Landingimage.webp')"
+      },
+      width: {
+        '350': '350px',
+      },
+      height: {
+        '350': '350px',
+      },
       
     }
   },

@@ -21,9 +21,9 @@
 
     </div>
     <div class="flex p-10 ">
-        <div>
+        <div class=" pr-10">
             <h2 class="font-bold text-4xl pb-4">EMAILSEARCH</h2>
-            <p>Con <strong>EMAIL-SEARCH</strong>, dile adiós a las largas horas navegando correos desordenados y a la
+            <p>Con <strong>EMAIL-SEARCH</strong> (buscador de información indexada), dile adiós a las largas horas navegando correos desordenados y a la
                 lentitud al buscar entre grandes volúmenes de correspondencia. Nuestra herramienta optimiza y agiliza tu
                 búsqueda, garantizando resultados precisos en segundos. Desde profesionales hasta curiosos,
                 <strong>EMAIL-SEARCH</strong> es la solución definitiva para descifrar el mundo digital.
@@ -33,11 +33,9 @@
             <div class=" flex justify-center pt-2">
                 <p class=" font-bold text-1xl">Obtén tu demo, iniciando sesión</p>
             </div>
-
-
         </div>
-        <div class="lg:block hidden">
-            <img src="../images/op2.webp" alt="hero" />
+        <div class="lg:block hidden ">
+            <img src="../images/op2.webp" alt="hero"  class="rounded-lg"/>
         </div>
 
     </div>

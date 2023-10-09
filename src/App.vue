@@ -13,7 +13,7 @@ console.log(auth.value);
 </script>
 
 <template>
-  <div class="flex-col">
+  <div class="flex-col h-screen">
     <Navbar />
     <Hero v-if="!auth" />
     <Search v-if="auth" />
